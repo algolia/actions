@@ -7,6 +7,9 @@ Use this repository as a sandbox to test and debug GitHub Actions.
 - `git commit --allow-empty --message "Empty commit"` to add a commit, even if
   no file changed
 - Add `[skip ci]` to the commit message to skip workflow execution
+- You can identify which PR is coming from a fork with `github.event_name ==
+  'pull_request' && github.event.pull_request.head.repo.fork`
+
 
 ## Gotchas
 
@@ -16,10 +19,6 @@ Use this repository as a sandbox to test and debug GitHub Actions.
   and open new ones, or rebase the PRs and force push.
 - Skipped job will always be displayed in the GitHub UI. The only way to make
   them completely silent is to somehow configure the workflow to not trigger.
-
-## Trivias
-
-- Even
 
 ## Triggers
 

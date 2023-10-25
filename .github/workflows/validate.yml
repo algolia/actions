@@ -9,8 +9,16 @@ on:
   workflow_call:
 
 jobs:
+   debug:
+     steps:
+       - name : Debug
+         env : { GITHUB : "${{ toJson(github) }}" }
+         run: echo "$GITHUB" | jq
+
   validate:
     name: Validate
+    # Only run on push, or on PR from forks.
+    # This avoid running it twice on PRs from local branches
     if: |
       (github.event_name == 'push') ||
       (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)
@@ -18,13 +26,3 @@ jobs:
     steps:
       - name: 🚦 Test
         run: echo "Running tests" && true
-
-  publish:
-    name: Publish
-    needs: validate
-    if: |
-      (github.event_name == 'push' && github.ref == 'refs/heads/main')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish
-        run: echo "Publish code" && true
