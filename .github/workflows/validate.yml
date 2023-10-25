@@ -1,9 +1,12 @@
-name: "VALIDATE"
-run-name: 🤖 Validating code on ${{ github.ref_name }}
+name: VALIDATE
 
 on:
   push:
+    branches:
+      - "**"
+      - "!master"
   pull_request:
+  workflow_call:
 
 jobs:
   validate:

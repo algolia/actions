@@ -1,0 +1,17 @@
+name: PUBLISH
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+  publish:
+    name: Publish
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish
+        run: echo "Publish code" && true

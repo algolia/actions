@@ -14,6 +14,12 @@ Use this repository as a sandbox to test and debug GitHub Actions.
 - PRs always use the workflow that was defined when they were opened. Updating
   workflows won't update the checks run on the PRs. You need to close those PRs
   and open new ones, or rebase the PRs and force push.
+- Skipped job will always be displayed in the GitHub UI. The only way to make
+  them completely silent is to somehow configure the workflow to not trigger.
+
+## Trivias
+
+- Even
 
 ## Triggers
 
