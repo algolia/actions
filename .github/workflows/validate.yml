@@ -6,13 +6,6 @@ on:
   pull_request:
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name : Debug
-        env : { GITHUB : "${{ toJson(github) }}" }
-        run: echo "$GITHUB" | jq
-
   validate:
     name: Validate
     if: |

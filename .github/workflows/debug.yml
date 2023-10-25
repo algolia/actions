@@ -1,0 +1,19 @@
+name: DEBUG
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    # Only run on push, or on PR from forks.
+    # This avoid running it twice on PRs from local branches
+    if: |
+      (github.event_name == 'push') ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)
+    steps:
+      - name : Debug
+        env : { GITHUB : "${{ toJson(github) }}" }
+        run: echo "$GITHUB" | jq
+

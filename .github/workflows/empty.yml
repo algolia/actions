@@ -1,0 +1,15 @@
+name: EMPTY
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  empty:
+    name: Should never run
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Should not run
+        if: false
+        run: echo "Nothing" && true
