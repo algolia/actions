@@ -1,0 +1,13 @@
+name: VALIDATE
+run-name: 🤖 Validating code on ${{ github.ref_name }}
+
+on:
+  push:
+
+jobs:
+  validate:
+    name: 🤖 Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚦 Test
+        run: echo "Running tests" && true
