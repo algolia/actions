@@ -9,11 +9,13 @@ on:
   workflow_call:
 
 jobs:
-   debug:
-     steps:
-       - name : Debug
-         env : { GITHUB : "${{ toJson(github) }}" }
-         run: echo "$GITHUB" | jq
+  debug:
+    name: Debug
+    runs-on: ubuntu-latest
+    steps:
+      - name : Debug
+        env : { GITHUB : "${{ toJson(github) }}" }
+        run: echo "$GITHUB" | jq
 
   validate:
     name: Validate
