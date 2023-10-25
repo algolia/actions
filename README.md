@@ -7,6 +7,7 @@ Use this repository as a sandbox to test and debug GitHub Actions.
 - `git commit --allow-empty --message "Empty commit"` to add a commit, even if
   no file changed
 - Add `[skip ci]` to the commit message to skip workflow execution
+- Workflows do not run on PR if the PR can't be merged
 
 ## Links
 
