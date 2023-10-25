@@ -10,11 +10,15 @@ jobs:
     name: ${{ github.workflow }} / ${{ github.event_name }} / ${{ github.base_ref }} / ${{ github.head_ref }}
     runs-on: ubuntu-latest
     steps:
+      - name : jq
+        env : { GITHUB : "${{ toJson(github) }}" }
+        run: apt-get install jq && echo "$GITHUB" | jq
+
       - name : Debug
         env : { GITHUB : "${{ toJson(github) }}" }
         uses: sergeysova/jq-action@v2
         with:
-          cmd: echo $CONTENT | jq
+          cmd: echo "$GITHUB" | jq
 
       - name: 🚦 Test
         run: echo "Running tests" && true
