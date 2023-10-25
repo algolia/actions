@@ -12,7 +12,7 @@ jobs:
     steps:
       - name : jq
         env : { GITHUB : "${{ toJson(github) }}" }
-        run: apt-get install jq && echo "$GITHUB" | jq
+        run: sudo apt-get install jq && echo "$GITHUB" | jq
 
       - name : Debug
         env : { GITHUB : "${{ toJson(github) }}" }
