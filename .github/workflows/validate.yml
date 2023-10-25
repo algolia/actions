@@ -4,7 +4,6 @@ run-name: 🤖 Validating code on ${{ github.ref_name }}
 on:
   push:
   pull_request:
-  pull_request_target:
 
 jobs:
   validate:
