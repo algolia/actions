@@ -13,17 +13,16 @@ Use this repository as a sandbox to test and debug GitHub Actions.
 
 ### `on.pull_request`
 
-- Triggered on all local PRs, not PRs from forks
+- Triggered on all PRs, local and from forks
 - Executed on the head of the PR
-- Has full write access to the repository
+- Local PRs have write access, fork PRs only have read access
 
 ### `on.pull_request_target`
 
-- Triggered on all PRs, including PRs from forks
-- Executed on the base branch of the PR, not the head
-- Has full write access to the repository
-- Should be considered INSECURE by default, as it allow potential execution of
-  untrusted external code
+- Triggered on all PRs, local and from forks
+- Executed on the base of the PR, not the head
+- Has full write access to the repository (but should be considered INSECURE,
+  and it's your responsibility to checkout or not the PR code)
 
 [Keeping your GitHub Actions and workflows secure Part 1: Preventing pwn
 requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)
