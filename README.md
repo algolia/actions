@@ -7,7 +7,13 @@ Use this repository as a sandbox to test and debug GitHub Actions.
 - `git commit --allow-empty --message "Empty commit"` to add a commit, even if
   no file changed
 - Add `[skip ci]` to the commit message to skip workflow execution
-- Workflows do not run on PR if the PR can't be merged
+
+## Gotchas
+
+- Workflows do not run on PRs if the PR can't be merged
+- PRs always use the workflow that was defined when they were opened. Updating
+  workflows won't update the checks run on the PRs. You need to close those PRs
+  and open new ones, or rebase the PRs and force push.
 
 ## Triggers
 
