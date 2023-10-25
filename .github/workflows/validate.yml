@@ -3,11 +3,45 @@ run-name: 🤖 Validating code on ${{ github.ref_name }}
 
 on:
   push:
+  pull_request_target:
 
 jobs:
   validate:
     name: 🤖 Validate
     runs-on: ubuntu-latest
     steps:
+      - name: Debug
+        # echo "head_ref: ${{ github.head_ref }}"
+        run: |
+          echo "token: ${{ github.token }}"
+          echo "job: ${{ github.job }}"
+          echo "ref: ${{ github.ref }}"
+          echo "sha: ${{ github.sha }}"
+          echo "repository: ${{ github.repository }}"
+          echo "repository_owner: ${{ github.repository_owner }}"
+          echo "repositoryUrl: ${{ github.repositoryUrl }}"
+          echo "run_id: ${{ github.run_id }}"
+          echo "run_number: ${{ github.run_number }}"
+          echo "retention_days: ${{ github.retention_days }}"
+          echo "run_attempt: ${{ github.run_attempt }}"
+          echo "actor: ${{ github.actor }}"
+          echo "workflow: ${{ github.workflow }}"
+          echo "base_ref: ${{ github.base_ref }}"
+          echo "event_name: ${{ github.event_name }}"
+          echo "server_url: ${{ github.server_url }}"
+          echo "api_url: ${{ github.api_url }}"
+          echo "graphql_url: ${{ github.graphql_url }}"
+          echo "ref_name: ${{ github.ref_name }}"
+          echo "ref_protected: ${{ github.ref_protected }}"
+          echo "ref_type: ${{ github.ref_type }}"
+          echo "secret_source: ${{ github.secret_source }}"
+          echo "workspace: ${{ github.workspace }}"
+          echo "action: ${{ github.action }}"
+          echo "event_path: ${{ github.event_path }}"
+          echo "action_repository: ${{ github.action_repository }}"
+          echo "action_ref: ${{ github.action_ref }}"
+          echo "path: ${{ github.path }}"
+          echo "env: ${{ github.env }}"
+
       - name: 🚦 Test
         run: echo "Running tests" && true
