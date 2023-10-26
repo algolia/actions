@@ -1,0 +1,13 @@
+name: DEBUG
+
+on:
+  push:
+
+jobs:
+   debug:
+     name: Debug
+     runs-on: ubuntu-latest
+     steps:
+       - name : Debug
+         env : { GITHUB : "${{ toJson(github) }}" }
+         run: echo "$GITHUB" | jq
