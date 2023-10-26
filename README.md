@@ -19,6 +19,10 @@ Use this repository as a sandbox to test and debug GitHub Actions.
   and open new ones, or rebase the PRs and force push.
 - Skipped job will always be displayed in the GitHub UI. The only way to make
   them completely silent is to somehow configure the workflow to not trigger.
+- If you define a workflow on `push`, it will be displayed in the PR checks. If
+  you also define the same workflow on `pull_request`, you will have it twice
+  for local branches. You can try to hack your way with conditionally running
+  the job for forks, but the ignored jobs will still be displayed in the UI.
 
 ## Triggers
 
